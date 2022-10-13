@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 const CardPage = (props: any) => {
     console.log(props)
     return (
-        <div className="fixed w-full m-0 h-screen top-0 left-0 bg-white z-50">
+        <div className="fixed w-full m-0 h-screen top-0 left-0 bg-white z-50 overflow-y-auto">
             <div 
             onClick={() => props.setActive(false)}
             className="px-4 py-2 flex">
