@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { useState } from "react"
 
-const Nav = (props: {id: string[]}) => {
+const Nav = (props: {id?: string[]}) => {
     const [selected, setSelected] = useState("svjedocanstva")
     const router = useRouter()
     

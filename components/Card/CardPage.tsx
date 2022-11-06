@@ -22,7 +22,7 @@ const CardPage = (props: any) => {
                 </iframe>
                 </div>
             </div>
-            <h1 className="text-2xl px-4 font-semibold">{props.title} Naslov</h1>
+            <h1 className="text-2xl px-4 font-semibold">{props.title}</h1>
             <ReactMarkdown className='whitespace-pre-line p-4'>{props.description}</ReactMarkdown>
         </div>
     )

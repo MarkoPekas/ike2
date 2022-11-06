@@ -5,7 +5,7 @@ export default async function graphql(query: string) {
         query,
     },{
         headers: {
-            "authorization": `Bearer ${process.env.STRAPI_KEY}`,
+            "authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_KEY}`,
         },
     })
 }
