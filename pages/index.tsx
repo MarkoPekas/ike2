@@ -31,7 +31,7 @@ const fetchPosts = async (from: number) => {
   return await graphql(`{
     posts (pagination: {
       start: ${from},
-      limit: 3
+      limit: 50
     }) {
       data {
         attributes {
