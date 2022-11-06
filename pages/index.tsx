@@ -70,7 +70,7 @@ const Home: NextPage = (props: any) => {
 
   return (
     <div>
-      <div className=' text-gray-900 p-4 flex h-[90vh] justify-center flex-col items-center'>
+      <div className=' text-gray-900 p-4 flex h-[80vh] justify-center flex-col items-center'>
         <p className='text-2xl font-semibold'>eDuhovnost</p>
         <div className='h-px w-full max-w-lg bg-gray-900 mt-4 mb-8'></div>
         <div className='space-y-6 w-full max-w-xs'>
@@ -151,7 +151,8 @@ const Home: NextPage = (props: any) => {
             </div> */}
         </div>
       </div>
-      <div>
+      <div className='p-4'>
+        <h1 className='text-xl font-medium'>Najnovije</h1>
         {
           posts.map((item: any, i: number) => {
             return (

@@ -1,9 +1,20 @@
+import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import graphql from "../../components/graphql";
 import Nav from "../../components/Nav";
 
-const Category = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { id } = context.query;
+
+    return {
+        props: {
+            id
+        }
+    }
+}
+
+const Category = (props: {id: string}) => {
     const [posts, setPosts] = useState<any>([]);
     const fetchPosts = async (from: number) => {
         return await graphql(`{
@@ -24,7 +35,7 @@ const Category = () => {
       }
     useEffect(() => {
         fetchPosts(0).then((data) => {
-            setPosts(data?.data?.data?.posts?.data);
+            setPosts(data?.data?.data?.posts?.data.filter((post: any) => post.attributes.podkategorija === props.id))
         })
     }, [])
 
@@ -33,7 +44,7 @@ const Category = () => {
         const handleScroll = () => {
             if (Math.round((window.innerHeight + document.documentElement.scrollTop)/10) !== Math.round((document.documentElement.offsetHeight)/10)) return;
             fetchPosts(posts.length).then((data) => {
-                setPosts([...posts, ...data?.data?.data?.posts?.data]);
+                setPosts([...posts, ...data?.data?.data?.posts?.data.filter((post: any) => post.attributes.podkategorija === props.id).filter((post: any) => !posts.find((p: any) => p.attributes.Naslov === post.attributes.Naslov))]);
             })
         }
         window.addEventListener('scroll', handleScroll);
